@@ -4,6 +4,7 @@ import 'dotenv/config';
 import cookieParser from "cookie-parser";
 import connectDB from "./config/mongodb.js";
 import authRouter from "./routes/authRoutes.js";
+import userRouter from "./routes/userRoutes.js";
 
 // ✅ Create an Express application instance
 const app = express();
@@ -22,6 +23,8 @@ app.use(cors({credentials: true})); // to allow cookies to be sent across origin
 
 //API endpoints 
 app.use('/api/auth', authRouter);
+app.use('/api/user', userRouter);
+
 
 app.get('/', (req, res)=>res.send('API is running....fine'));
 
